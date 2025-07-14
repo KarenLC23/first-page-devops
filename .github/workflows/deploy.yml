@@ -2,7 +2,7 @@ name: Build and Deploy Docker
 
 on:
   push:
-    branches: [ master ]   # Ejecuta esto solo cuando hagas push a la rama "master"
+    branches: [ main ]   # Ejecuta esto solo cuando hagas push a la rama "master"
 
 jobs:
   build:
