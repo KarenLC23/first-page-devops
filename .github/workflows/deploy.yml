@@ -1,0 +1,19 @@
+name: Build and Deploy Docker
+
+on:
+  push:
+    branches: [ master ]   # Ejecuta esto solo cuando hagas push a la rama "master"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # GitHub usará una máquina Ubuntu temporal
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2   # Descarga tu código del repo
+
+      - name: Build Docker image
+        run: docker build -t my-page .   # Construye la imagen Docker desde tu Dockerfile
+
+      - name: Run Docker container
+        run: docker run -d -p 8080:80 my-page   # Intenta correr el contenedor (esto es lo que genera el warning)
